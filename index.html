@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-text="judul"></div>
+        <div v-html="judul2"></div>
+        <div v-if="status == true">
+            kondisi benar
+        </div>
+        <div v-else if="status == false">
+            kondisi salah
+        </div>
+        <div v-for="(item, index) in peoples">
+            <h2>{{item.nama}} || {{item.alamat}}</h2>
+        </div>
+        <input type="text" v-model="input">
+        <div v-text="input"></div>
+        <button @click="tekan()">tanpilkan data</button>
+    </div>
+        
+    </div>
+        <script type="module">
+            import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+            createApp({
+                data(){
+                    return{
+                        pesan : 'hallo word',
+                        judul : 'belajar vue duls',
+                        judul2 : '<h1>belajar rect duls</h1>',
+                        status : false,
+                        peoples: [
+                            {nama : 'lulu', alamat : 'gowa'},
+                            {nama : 'lli', alamat : 'tmlanrea'},
+                        ],
+                        input : '',
+
+                    }
+                },
+                methods: {
+                    tekan(){
+                        this.peoples[0].nama = "vyn",
+                        this.peoples[1].nama = "mito",
+                        this.peoples[0].alamat = 'bone',
+                        this.peoples[1].alamat = 'antang'
+
+                    }
+                    
+                },
+            }).mount('#app')
+            
+        </script>
+</body>
+</html>
